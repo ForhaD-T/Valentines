@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,7 +142,7 @@
 </head>
 <body>
     <audio id="bgMusic" loop preload="auto">
-        <source src="raabta-romantic.mp3" type="audio/mpeg">
+        <source src="raabta-piano.mp3" type="audio/mpeg">
     </audio>
 
     <div class="hearts" id="hearts"></div>
@@ -202,6 +203,7 @@
             }, 500);
         }
 
+        // মিউজিক প্লে করার ফাংশন
         function playMusic() {
             if (!musicStarted) {
                 bgMusic.play().catch(e => console.log("Music play failed", e));
@@ -209,8 +211,9 @@
             }
         }
 
+        // বাটন মুভ করার ফাংশন
         function moveNoButton() {
-            playMusic();
+            playMusic(); // প্রথম টাচেই গান শুরু হবে
             const padding = 50;
             const maxX = window.innerWidth - noBtn.offsetWidth - padding;
             const maxY = window.innerHeight - noBtn.offsetHeight - padding;
@@ -223,24 +226,28 @@
             noBtn.style.top = randomY + 'px';
         }
 
+        // No button Events
         noBtn.addEventListener('mouseenter', moveNoButton);
         noBtn.addEventListener('touchstart', (e) => {
             e.preventDefault();
             moveNoButton();
         });
 
+        // Yes button click
         yesBtn.addEventListener('click', () => {
-            playMusic();
+            playMusic(); // গান আগে শুরু না হলে এখানে হবে
             questionDiv.style.display = 'none';
             celebrationDiv.style.display = 'flex';
             backBtn.style.display = 'block';
             startLyrics();
         });
 
+        // Back button
         backBtn.addEventListener('click', () => {
             location.reload(); 
         });
 
+        // Background hearts animation
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -254,3 +261,4 @@
     </script>
 </body>
 </html>
+        
