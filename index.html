@@ -1,264 +1,207 @@
-
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine? Takiaaaa💕</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #ff9ff3);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            animation: float 6s linear infinite;
-            opacity: 0.7;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-        .container {
-            text-align: center;
-            z-index: 10;
-            position: relative;
-            width: 100%;
-        }
-        h1 {
-            font-size: 2.2em;
-            color: white;
-            text-shadow: 0 0 20px #ff69b4;
-            margin-bottom: 2em;
-            padding: 0 10px;
-        }
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-        }
-        button {
-            padding: 15px 35px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            touch-action: none;
-        }
-        #yes {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            color: white;
-        }
-        #no {
-            background: linear-gradient(45deg, #ffcccb, #ffb6c1);
-            color: #333;
-            position: relative;
-            z-index: 100;
-        }
-        .celebration {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
-            z-index: 20;
-        }
-        .message {
-            font-size: 1.8em;
-            color: #ff1493;
-            text-shadow: 0 0 20px #fff;
-            margin-bottom: 10px;
-        }
-        .special-text {
-            color: white;
-            font-size: 0.95em;
-            max-width: 90%;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        #lyrics-container {
-            position: fixed;
-            bottom: 80px; 
-            width: 100%;
-            text-align: center;
-            color: white;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-            z-index: 100;
-            padding: 0 20px;
-            min-height: 2.5em;
-            transition: opacity 0.5s;
-        }
-        .cute-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(255,20,147,0.5);
-        }
-        .back-btn {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: white;
-            color: #ff69b4;
-            border: 1px solid #ff69b4;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: none;
-            z-index: 200;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine? 💕</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(45deg,#ff6b9d,#c44569,#f8b500,#ff9ff3);
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Hearts */
+.hearts{position:absolute;inset:0;overflow:hidden}
+.heart{
+  position:absolute;
+  font-size:18px;
+  opacity:.8;
+  animation:float 5s linear forwards;
+}
+@keyframes float{
+  from{transform:translateY(100vh) scale(.8);opacity:0}
+  20%{opacity:1}
+  to{transform:translateY(-80px) scale(1.2);opacity:0}
+}
+
+/* Main */
+.container{text-align:center;z-index:10;padding:10px}
+h1{
+  color:#fff;
+  font-size:clamp(1.6rem,4vw,2.2rem);
+  text-shadow:0 0 15px #ff69b4;
+  margin-bottom:2rem;
+}
+.buttons{display:flex;gap:20px;justify-content:center}
+
+button{
+  padding:14px 32px;
+  font-size:1.1rem;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  touch-action:none;
+}
+
+#yes{background:linear-gradient(45deg,#ff69b4,#ff1493);color:#fff}
+#no{background:linear-gradient(45deg,#ffcccb,#ffb6c1)}
+
+.celebration{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.message{color:#ff1493;font-size:1.7rem;margin-bottom:10px}
+.special-text{color:#fff;font-size:.95rem;max-width:90%;line-height:1.5}
+
+.cute-img{
+  width:160px;
+  height:160px;
+  border-radius:18px;
+  object-fit:cover;
+  margin:15px 0;
+  box-shadow:0 8px 25px rgba(255,20,147,.5);
+}
+
+#lyrics{
+  position:fixed;
+  bottom:70px;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-weight:bold;
+  opacity:0;
+  transition:opacity .4s;
+}
+
+.back-btn{
+  position:absolute;
+  top:12px;
+  left:12px;
+  display:none;
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid #ff69b4;
+  background:#fff;
+  color:#ff69b4;
+}
+</style>
 </head>
+
 <body>
-    <audio id="bgMusic" loop preload="auto">
-        <source src="raabta-piano.mp3" type="audio/mpeg">
-    </audio>
 
-    <div class="hearts" id="hearts"></div>
-    <button class="back-btn" id="backBtn">← Back</button>
-    
-    <div class="container" id="question">
-        <h1>Will you be my Valentine? Takiaaaa 💖</h1>
-        <div class="buttons">
-            <button id="yes">Yes 💕</button>
-            <button id="no">No 😏</button>
-        </div>
-    </div>
-       
-    <div class="celebration" id="celebration">
-        <h1 class="message">Yay! I knew you'd say YES! ❤️</h1>
-        <p class="special-text">“You didn’t just enter my life, you became the reason it feels complete 💖. In the midst of the world’s chaos 🌪️, you became my serene haven 🌸🕊️, and if love had a face 😊, a name ✨, and a soul 💫, it would be yours alone ❤️.”</p>
-        
-        <img src="PXL_20251109_125344695~2.jpg" alt="Takia" class="cute-img">
-        
-        <div id="lyrics-container"></div>
-    </div>
+<audio id="music" preload="auto">
+  <source src="raabta-piano.mp3" type="audio/mpeg">
+</audio>
 
-    <script>
-        const bgMusic = document.getElementById('bgMusic');
-        const lyricsContainer = document.getElementById('lyrics-container');
-        const noBtn = document.getElementById('no');
-        const yesBtn = document.getElementById('yes');
-        const questionDiv = document.getElementById('question');
-        const celebrationDiv = document.getElementById('celebration');
-        const backBtn = document.getElementById('backBtn');
-        
-        let musicStarted = false;
+<div class="hearts" id="hearts"></div>
+<button class="back-btn" id="back">← Back</button>
 
-        const lyrics = [
-            "Takia, তুমি আমার জীবনের সবচেয়ে সুন্দর অনুভূতি 🌹",
-            "Every heartbeat chooses you 💕",
-            "তুমি আমার রাব্তা, আমার প্রেমের গান 🎶",
-            "Forever together, my love ❤️",
-            "Without you, I'm nothing 😘"
-        ];
+<div class="container" id="question">
+  <h1>Will you be my Valentine? 💖</h1>
+  <div class="buttons">
+    <button id="yes">Yes 💕</button>
+    <button id="no">No 😏</button>
+  </div>
+</div>
 
-        let lyricIndex = 0;
-        let lyricInterval;
+<div class="celebration" id="celebrate">
+  <h1 class="message">I knew it ❤️</h1>
+  <p class="special-text">
+    You are my calm in chaos, my forever 💖
+  </p>
+  <img src="PXL_20251109_125344695~2.jpg" class="cute-img">
+  <div id="lyrics"></div>
+</div>
 
-        function startLyrics() {
-            lyricIndex = 0;
-            clearInterval(lyricInterval);
-            showNextLyric();
-            lyricInterval = setInterval(showNextLyric, 4500);
-        }
+<script>
+const music=document.getElementById("music");
+const noBtn=document.getElementById("no");
+const yesBtn=document.getElementById("yes");
+const question=document.getElementById("question");
+const celebrate=document.getElementById("celebrate");
+const lyricsBox=document.getElementById("lyrics");
+const backBtn=document.getElementById("back");
+const hearts=document.getElementById("hearts");
 
-        function showNextLyric() {
-            lyricsContainer.style.opacity = 0;
-            setTimeout(() => {
-                lyricsContainer.innerText = lyrics[lyricIndex];
-                lyricsContainer.style.opacity = 1;
-                lyricIndex = (lyricIndex + 1) % lyrics.length;
-            }, 500);
-        }
+let musicPlayed=false;
+let heartCount=0;
+const MAX_HEARTS=25;
 
-        // মিউজিক প্লে করার ফাংশন
-        function playMusic() {
-            if (!musicStarted) {
-                bgMusic.play().catch(e => console.log("Music play failed", e));
-                musicStarted = true;
-            }
-        }
+const lyrics=[
+ "Takia, তুমি আমার সব 💖",
+ "Every heartbeat is yours 💕",
+ "Forever and always ❤️"
+];
+let i=0;
 
-        // বাটন মুভ করার ফাংশন
-        function moveNoButton() {
-            playMusic(); // প্রথম টাচেই গান শুরু হবে
-            const padding = 50;
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-            
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
+function playMusic(){
+ if(!musicPlayed){
+  music.play().catch(()=>{});
+  musicPlayed=true;
+ }
+}
 
-        // No button Events
-        noBtn.addEventListener('mouseenter', moveNoButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveNoButton();
-        });
+function moveNo(){
+ playMusic();
+ const x=Math.random()*(window.innerWidth-noBtn.offsetWidth-20);
+ const y=Math.random()*(window.innerHeight-noBtn.offsetHeight-20);
+ noBtn.style.position="fixed";
+ noBtn.style.left=x+"px";
+ noBtn.style.top=y+"px";
+}
 
-        // Yes button click
-        yesBtn.addEventListener('click', () => {
-            playMusic(); // গান আগে শুরু না হলে এখানে হবে
-            questionDiv.style.display = 'none';
-            celebrationDiv.style.display = 'flex';
-            backBtn.style.display = 'block';
-            startLyrics();
-        });
+noBtn.addEventListener("mouseenter",moveNo);
+noBtn.addEventListener("touchstart",e=>{e.preventDefault();moveNo();});
 
-        // Back button
-        backBtn.addEventListener('click', () => {
-            location.reload(); 
-        });
+yesBtn.onclick=()=>{
+ playMusic();
+ question.style.display="none";
+ celebrate.style.display="flex";
+ backBtn.style.display="block";
+ setInterval(()=>{
+  lyricsBox.style.opacity=0;
+  setTimeout(()=>{
+   lyricsBox.textContent=lyrics[i++%lyrics.length];
+   lyricsBox.style.opacity=1;
+  },300);
+ },4000);
+};
 
-        // Background hearts animation
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random()*3 + 3) + 's';
-            document.getElementById('hearts').appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }
-        setInterval(createHeart, 300);
-    </script>
+backBtn.onclick=()=>location.reload();
+
+/* Optimized hearts */
+setInterval(()=>{
+ if(heartCount>MAX_HEARTS) return;
+ const h=document.createElement("div");
+ h.className="heart";
+ h.textContent="❤️";
+ h.style.left=Math.random()*100+"%";
+ hearts.appendChild(h);
+ heartCount++;
+ setTimeout(()=>{h.remove();heartCount--;},5000);
+},400);
+</script>
+
 </body>
-</html>
-        
+</html>     
